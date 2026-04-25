@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    align-items: center;
+    z-index: 100;
+}
+.header ul{
+    list-style-type: none;
+    display: flex;
+}
+.header ul li a{
+    margin: 15px;
+}
