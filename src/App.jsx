@@ -1,15 +1,38 @@
 
 import './App.css'
 import Navbar from './components/Navbar'
-//import Baneer from './components/Baneer'
-//import Card from './components/Card'
+import ProductCard from './components/ProductCard'
+
 
 export default function App() {
   return (
     <>
-        <Navbar/> 
-       {/* <Baneer/> */}
-       {/* <Card/>   */}
+        <Navbar/>
+       <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            <ProductCard/>
+          </div>
+          <div className="col-md-4">
+            <ProductCard/>
+          </div>
+          <div className="col-md-4">
+            <ProductCard/>
+          </div>
+           <div className="col-md-4">
+            <ProductCard/>
+          </div>
+           <div className="col-md-4">
+            <ProductCard/>
+          </div>
+           <div className="col-md-4">
+            <ProductCard/>
+          </div>
+        </div> 
+       </div>
+
+        
+      
     </>
   )
 }
