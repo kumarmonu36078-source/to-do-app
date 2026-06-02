@@ -10,6 +10,7 @@ import DetailPage from './pages/DetailPage';
 import RongPage from './pages/RongPage';
 import { createContext} from 'react';
 import { useState ,useEffect } from 'react';
+import HeroPage from './components/HeroPage';
 
 export const CartContext=createContext();
 
@@ -24,9 +25,9 @@ export default function App() {
 
   useEffect(()=>{
 
-    if(Cart.length){
+    
       localStorage.setItem('cart', JSON.stringify(Cart))
-    }
+    
 
   }, [Cart])
   return (
@@ -41,6 +42,7 @@ export default function App() {
       <Route path='/product/:id' element={<DetailPage/>}/>
       <Route path='/cardpage' element={<CardPage/>}/>
       <Route path='*' element={<RongPage/>}/>
+      
     </Routes>
     </BrowserRouter>
     </CartContext.Provider>
