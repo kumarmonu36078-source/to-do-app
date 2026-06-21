@@ -7,11 +7,19 @@ import { useEffect, useState } from 'react'
 
 function Home() {
   const [product, setProduct] = useState([])
-  const getProductFromApi = async()=>{
-    const res = await fetch('https://fakestoreapi.com/products')
-    const data = await res.json()
+  // 
+  const getProductFromApi = async () => {
+  try {
+    const res = await fetch('http://localhost:7000/products');
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const data = await res.json();
     setProduct(data);
+  } catch (error) {
+    console.error("Fetch error:", error);
   }
+}
    useEffect(()=>{
     getProductFromApi();
    }, [])
@@ -29,7 +37,7 @@ function Home() {
       margin: '0 auto' // Center me lane ke liye
     }}>
       {product.map((item) => (
-        <ProductCard key={item.id} product={item} />
+        <ProductCard key={item._id} product={item} />
       ))}
     </div>
   </>

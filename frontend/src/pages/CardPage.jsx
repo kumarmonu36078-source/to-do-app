@@ -8,8 +8,8 @@ function CardPage() {
   const handleClearCart = ()=>{
     setCart([])
   }
-         const handleDlelteCart = (id)=>{
-            const updateCart = Cart.filter(c=>c.id != id)
+         const handleDlelteCart = (_id)=>{
+            const updateCart = Cart.filter(c=>c._id != _id)
             setCart(updateCart)
           }
 
@@ -30,13 +30,13 @@ function CardPage() {
       <tbody>
           {
             Cart.map(item=>(
-        <tr key={item.id}>
+        <tr key={item._id}>
           <td>
             <img width={50} src={item.image} alt="" />
           </td>
-          <td>item.name</td>
-          <td>item.price</td>
-          <td className='btn btn-danger' onClick={()=>handleDlelteCart(item.id)}>
+          <td>{item.title}</td>
+          <td>{item.price}</td>
+          <td className='btn btn-danger' onClick={()=>handleDlelteCart(item._id)}>
             <i className="bi bi-trash-fill"></i>
           </td>
         </tr>

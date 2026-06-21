@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { products } from '../data';
 import {CartContext}from '../App'
 import { useContext } from 'react';
-
+import { Rating } from 'react-simple-star-rating'
 
 function ProductCard(props) {
   const{Cart,setCart}= useContext(CartContext)
@@ -14,19 +14,14 @@ function ProductCard(props) {
     .trim()                        // Remove extra spaces
     .replace(/[^\w\s-]/g, "")      // Remove special characters
     .replace(/\s+/g, "-")          // Replace spaces with -
-    .replace(/--+/g, "-");  
-           // Remove multiple -
-           
+    .replace(/--+/g, "-");       
 }
-
-
 const  handleClick =(p)=>{
-const foundItem = Cart.find((i)=>i.id == p.id)
+const foundItem = Cart.find((i)=>i._id == p._id)
 if(!foundItem){
  setCart([...Cart,p]);
 }
   // yaha mane ek new value li h new value ko existing karane ke liye //purani value exsiting me jay gi new p me aayge 
-  
 }
  return (
   <div style={{ height: '100%' }}>
@@ -84,7 +79,8 @@ if(!foundItem){
           <p className="card-text" style={{ fontWeight: 'bold', margin: '5px 0' }}>
             MRP - ${props.product.price}
           </p>
-          <div style={{ marginBottom: '15px' }}>⭐⭐⭐⭐⭐</div>
+          <Rating readonly={true} allowFraction={true} initialValue={props.product.rating.rate} />
+
           
           <button 
             className="btn btn-primary w-100" 

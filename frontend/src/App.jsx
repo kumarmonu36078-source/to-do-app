@@ -12,6 +12,7 @@ import { createContext} from 'react';
 import { useState ,useEffect } from 'react';
 import HeroPage from './components/HeroPage';
 
+
 export const CartContext=createContext();
 
 
